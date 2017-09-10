@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import { firebaseApp } from './../../firebase.js';
 import TextField from 'material-ui/TextField';
@@ -59,6 +60,13 @@ class SignUp extends Component {
           onChange={event => this.setState({ password: event.target.value })}
         /><br />
         <RaisedButton label="Sign Up" primary={true} onClick={() => this.signUp()} />
+        <RaisedButton
+        primary={false}
+        label="Sign In Form"
+        containerElement={
+          <Link to={'/signin'}></Link>
+        }
+        />
         <Dialog
           actions={actions}
           modal={false}
