@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { firebaseApp } from './../../firebase.js';
 
 import RaisedButton from 'material-ui/RaisedButton';
@@ -25,4 +26,9 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  console.log(state);
+  return {}
+}
+
+export default connect(mapStateToProps, null)(App);

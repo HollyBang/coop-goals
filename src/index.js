@@ -9,6 +9,10 @@ import {
   Link
 } from 'react-router-dom';
 import history from './history';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { logUser } from './actions';
+import reducer from './reducers';
 
 import { firebaseApp } from './firebase';
 
@@ -16,11 +20,13 @@ import App from './components/App';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 
-
+const store = createStore(reducer);
 
   firebaseApp.auth().onAuthStateChanged(user => {
     if (user) {
       console.log('user has signed in or up', user);
+      const { email } = user;
+      store.dispatch(logUser(email));
       history.push('/');
     } else {
       console.log('user has signed out or still needs to sign up');
@@ -49,7 +55,9 @@ const MyApp = () => (
 );
 
 ReactDOM.render(
-  <MyApp />,
+  <Provider store={store}>
+    <MyApp />
+  </Provider>,
   document.getElementById('root')
 );
 
