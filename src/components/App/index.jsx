@@ -4,6 +4,8 @@ import { firebaseApp } from './../../firebase.js';
 
 import RaisedButton from 'material-ui/RaisedButton';
 
+import AddGoal from './AddGoal';
+import GoalList from './GoalList';
 
 class App extends Component {
 
@@ -15,12 +17,13 @@ class App extends Component {
   render() {
     return (
       <div>
-        hello
-        <br />
+        <h3>Goals</h3>
+        <AddGoal />
+        <GoalList />
         <RaisedButton
-        label="Sign Out"
-        secondary={true}
-        onClick={() => this.signOut()} />
+          label="Sign Out"
+          secondary={true}
+          onClick={() => this.signOut()} />
       </div>
     );
   }
