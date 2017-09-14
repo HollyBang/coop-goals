@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { List, ListItem } from 'material-ui/List';
+import { List } from 'material-ui/List';
 
 import { goalRef } from './../../firebase';
 import { setGoals } from './../../actions';
 
-// import GoalItems from './GoalItems';
+import GoalItems from './GoalItems';
 
 class GoalList extends Component {
 
@@ -14,8 +14,8 @@ class GoalList extends Component {
       let goals = [];
       snapshot.forEach(goal => {
         const { email, title } = goal.val();
-        let goalObj = goal.val();
-        goals.push(goalObj);
+        const itemKey = goal.key;
+        goals.push({email, title, itemKey});
       })
       this.props.setGoals(goals);
     })
@@ -27,14 +27,11 @@ class GoalList extends Component {
         {
           this.props.goals.map((goal, i) => {
             return (
-              <ListItem key={i}
-                primaryText={goal.title}
-                secondaryText={`added by ${goal.email}`}
-              />
+              <GoalItems key={i} goal={goal}/>
             )
           })
         }
-      </List>
+        </List>
     );
   }
 }
