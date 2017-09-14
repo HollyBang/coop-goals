@@ -4,8 +4,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {
   Router,
   Route,
-  Redirect,
-  withRouter,
   Link
 } from 'react-router-dom';
 import history from './history';
