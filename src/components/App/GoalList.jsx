@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { List, ListItem } from 'material-ui/List';
 
 import { goalRef } from './../../firebase';
 import { setGoals } from './../../actions';
 
+// import GoalItems from './GoalItems';
 
 class GoalList extends Component {
 
@@ -21,9 +23,18 @@ class GoalList extends Component {
 
   render() {
     return (
-      <div>
-        
-      </div>
+      <List>
+        {
+          this.props.goals.map((goal, i) => {
+            return (
+              <ListItem key={i}
+                primaryText={goal.title}
+                secondaryText={`added by ${goal.email}`}
+              />
+            )
+          })
+        }
+      </List>
     );
   }
 }

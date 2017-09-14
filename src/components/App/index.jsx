@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { firebaseApp } from './../../firebase.js';
 
 import RaisedButton from 'material-ui/RaisedButton';
+import Divider from 'material-ui/Divider';
 
 import AddGoal from './AddGoal';
 import GoalList from './GoalList';
@@ -17,9 +18,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h3>Goals</h3>
+        <h3>Add Goal</h3>
         <AddGoal />
+        <Divider />
+        <h3>Goals</h3>
         <GoalList />
+        <Divider />
         <RaisedButton
           label="Sign Out"
           secondary={true}
