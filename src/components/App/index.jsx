@@ -7,6 +7,7 @@ import Divider from 'material-ui/Divider';
 
 import AddGoal from './AddGoal';
 import GoalList from './GoalList';
+import CompleteGoalList from './CompleteGoalList';
 
 class App extends Component {
 
@@ -24,6 +25,8 @@ class App extends Component {
         <h3>Goals</h3>
         <GoalList />
         <Divider />
+        <h3>Complete Goals</h3>
+        <CompleteGoalList />
         <RaisedButton
           label="Sign Out"
           secondary={true}

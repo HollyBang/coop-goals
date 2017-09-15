@@ -21,7 +21,7 @@ class GoalItems extends Component {
     const iconButtonElement = (
       <IconButton
         touch={true}
-        tooltip="Complite"
+        tooltip="Complete"
         tooltipPosition="top-left"
         onClick={() => this.completeGoal()}
       >
