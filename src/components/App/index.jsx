@@ -4,6 +4,7 @@ import { firebaseApp } from './../../firebase.js';
 
 import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
+import Subheader from 'material-ui/Subheader';
 
 import AddGoal from './AddGoal';
 import GoalList from './GoalList';
@@ -17,15 +18,19 @@ class App extends Component {
   }
 
   render() {
+    const style = {
+      width: '400px',
+      margin: '0 auto'
+    }
     return (
-      <div>
-        <h3>Add Goal</h3>
+      <div style={style}>
+        <Subheader>Add Goal</Subheader>
         <AddGoal />
         <Divider />
-        <h3>Goals</h3>
+        <Subheader>Goals</Subheader>
         <GoalList />
         <Divider />
-        <h3>Complete Goals</h3>
+        <Subheader>Complete Goals</Subheader>
         <CompleteGoalList />
         <RaisedButton
           label="Sign Out"
