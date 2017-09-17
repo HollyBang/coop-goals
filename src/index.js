@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { AppBar, Tabs, Tab } from 'material-ui';
 import {
   Router,
   Route,
@@ -20,15 +21,15 @@ import SignUp from './components/SignUp';
 
 const store = createStore(reducer);
 
-  firebaseApp.auth().onAuthStateChanged(user => {
-    if (user) {
-      const { email } = user;
-      store.dispatch(logUser(email));
-      history.push('/');
-    } else {
-      history.replace('/signin');
-    }
-  });
+firebaseApp.auth().onAuthStateChanged(user => {
+  if (user) {
+    const { email } = user;
+    store.dispatch(logUser(email));
+    history.push('/');
+  } else {
+    history.replace('/signin');
+  }
+});
 
 
 
@@ -37,11 +38,14 @@ const MyApp = () => (
   <MuiThemeProvider>
     <Router history={history}>
       <div>
-        <ul>
-          <li><Link to="/">Public Page</Link></li>
-          <li><Link to="/signin">sign in</Link></li>
-          <li><Link to="/signup">sign up</Link></li>
-        </ul>
+        <AppBar title="My App">
+          <Tabs>
+            <Tab label="&nbsp;Item 1&nbsp;" />
+            <Tab label="&nbsp;Item 2&nbsp;" />
+            <Tab label="&nbsp;Item 3&nbsp;" />
+            <Tab label="&nbsp;Item 4&nbsp;" />
+          </Tabs>
+        </AppBar>
         <Route exact path="/" component={App} />
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
