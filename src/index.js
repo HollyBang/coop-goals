@@ -2,11 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { AppBar, Tabs, Tab } from 'material-ui';
-import {
-  Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import history from './history';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';

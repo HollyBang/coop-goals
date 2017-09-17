@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { ListItem } from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
-import { grey400, darkBlack, lightBlack } from 'material-ui/styles/colors';
+import { grey400 } from 'material-ui/styles/colors';
 import ActionDone from 'material-ui/svg-icons/action/done';
 import ActionAlert from 'material-ui/svg-icons/action/assignment-late';
 
