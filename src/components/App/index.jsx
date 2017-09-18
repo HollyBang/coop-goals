@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { firebaseApp } from './../../firebase.js';
 
-import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 
@@ -11,11 +9,6 @@ import GoalList from './GoalList';
 import CompleteGoalList from './CompleteGoalList';
 
 class App extends Component {
-
-
-  signOut() {
-    firebaseApp.auth().signOut();
-  }
 
   render() {
     const style = {
@@ -32,10 +25,6 @@ class App extends Component {
         <Divider />
         <Subheader>Complete Goals</Subheader>
         <CompleteGoalList />
-        <RaisedButton
-          label="Sign Out"
-          secondary={true}
-          onClick={() => this.signOut()} />
       </div>
     );
   }
