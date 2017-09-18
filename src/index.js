@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { AppBar, Tabs, Tab } from 'material-ui';
 import { Router, Route } from 'react-router-dom';
 import history from './history';
 import { createStore } from 'redux';
@@ -14,6 +13,7 @@ import { firebaseApp } from './firebase';
 import App from './components/App';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import Header from './components/Header';
 
 const store = createStore(reducer);
 
@@ -33,15 +33,8 @@ firebaseApp.auth().onAuthStateChanged(user => {
 const MyApp = () => (
   <MuiThemeProvider>
     <Router history={history}>
-      <div>
-        <AppBar title="My App">
-          <Tabs>
-            <Tab label="&nbsp;Item 1&nbsp;" />
-            <Tab label="&nbsp;Item 2&nbsp;" />
-            <Tab label="&nbsp;Item 3&nbsp;" />
-            <Tab label="&nbsp;Item 4&nbsp;" />
-          </Tabs>
-        </AppBar>
+      <div >
+        <Header />
         <Route exact path="/" component={App} />
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
