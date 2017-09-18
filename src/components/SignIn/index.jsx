@@ -6,6 +6,7 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import Subheader from 'material-ui/Subheader';
 
 class SignIn extends Component {
   constructor(props) {
@@ -25,11 +26,9 @@ class SignIn extends Component {
   };
 
   signIn() {
-    console.log('this.state', this.state);
     const { email, password } = this.state;
     firebaseApp.auth().signInWithEmailAndPassword(email, password)
       .catch(error => {
-        console.log('error', error);
         this.setState({
           error,
           open: true
@@ -47,7 +46,7 @@ class SignIn extends Component {
     ];
     return (
       <div>
-        <h2>Sign In</h2>
+        <Subheader>Sign In</Subheader>
         <TextField
           hintText="email"
           floatingLabelText="Write email here!"

@@ -24,8 +24,8 @@ class AddGoal extends Component {
     return (
       <div>
         <TextField
-          hintText="Hint Text"
-          floatingLabelText="Floating Label Text"
+          hintText="What u want to do?"
+          floatingLabelText="Write your goal here!"
           onChange={ event => this.setState({ title: event.target.value })} 
         />
         <RaisedButton label="Add Goal" primary={true} onClick={() => this.addGoal()} />
