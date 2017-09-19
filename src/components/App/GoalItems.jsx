@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { ListItem } from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
-import { grey400 } from 'material-ui/styles/colors';
+import { blue700 } from 'material-ui/styles/colors';
 import ActionDone from 'material-ui/svg-icons/action/done';
 import ActionAlert from 'material-ui/svg-icons/action/assignment-late';
 
@@ -25,7 +25,7 @@ class GoalItems extends Component {
         tooltipPosition="top-left"
         onClick={() => this.completeGoal()}
       >
-        <ActionDone color={grey400} />
+        <ActionDone color={blue700} />
       </IconButton>
     );
     const { email, title } = this.props.goal;
