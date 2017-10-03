@@ -18,12 +18,14 @@ class AddGoal extends Component {
     const { title } = this.state;
     const { email } = this.props.user;
     goalRef.push({ email, title });
+    this.setState({ title: '' })
   }
   
   render() {
     return (
       <div>
         <TextField
+          value={this.state.title}
           hintText="What u want to do?"
           floatingLabelText="Write your goal here!"
           onChange={ event => this.setState({ title: event.target.value })} 
